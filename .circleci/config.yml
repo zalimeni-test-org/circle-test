@@ -1,0 +1,27 @@
+version: 2
+jobs:
+        build:
+                docker:
+                        - image: debian:stretch
+                steps:
+                        - run:
+                                name: Sleep 15s
+                                command: sleep 15s
+                        - run:
+                                name: Greeting
+                                command: echo "dHello, world!"
+
+        print_date:
+                docker:
+                        - image: debian:stretch
+                steps:
+                        - run:
+                                name: Print current time
+                                command: date
+
+workflows:
+        version: 2
+        build_stuff:
+                jobs:
+                        - build
+                        - print_date
