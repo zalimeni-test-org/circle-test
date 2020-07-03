@@ -24,4 +24,10 @@ workflows:
         build_stuff:
                 jobs:
                         - build
-                        - print_date
+                        - hold:
+                                type: approval
+                                requires:
+                                        - build
+                        - print_date:
+                                requires:
+                                        - hold
