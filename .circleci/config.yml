@@ -23,7 +23,8 @@ workflows:
         version: 2
         build_stuff:
                 jobs:
-                        - build
+                        - build:
+                                context: test-cli
                         - hold:
                                 type: approval
                                 requires:
