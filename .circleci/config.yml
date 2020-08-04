@@ -5,11 +5,11 @@ jobs:
                         - image: debian:stretch
                 steps:
                         - run:
-                                name: Sleep 15s
-                                command: sleep 15s
-                        - run:
                                 name: Greeting
-                                command: echo "dHello, world!"
+                                command: echo "Hello, world: $TEST_NULL"
+                        - run: 
+                                name: Base64
+                                command: echo "Hello, world: $TEST_NULL" | base64 -
 
         print_date:
                 docker:
@@ -23,7 +23,8 @@ workflows:
         version: 2
         build_stuff:
                 jobs:
-                        - build
+                        - build:
+                                context: test-cli
                         - hold:
                                 type: approval
                                 requires:
