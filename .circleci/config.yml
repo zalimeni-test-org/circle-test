@@ -6,10 +6,7 @@ jobs:
                 steps:
                         - run:
                                 name: Greeting
-                                command: echo "Hello, world:${TEST_VAR}!"
-                        - run: 
-                                name: Base64
-                                command: echo "Hello, world:${TEST_VAR}!" | base64 -
+                                command: 'echo "foo"'
 
         print_date:
                 docker:
