@@ -24,11 +24,7 @@ workflows:
         build_stuff:
                 jobs:
                         - build:
-                                context: test-cli
-                        - hold:
-                                type: approval
-                                requires:
-                                        - build
+                                context: parent-child-test-context
                         - print_date:
                                 requires:
-                                        - hold
+                                        - build
